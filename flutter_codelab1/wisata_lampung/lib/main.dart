@@ -73,7 +73,7 @@ class DetailScreen extends StatelessWidget {
             padding: EdgeInsets.all(16.0),
             child: Text(
               "Menyebut diri Anda sebagai seorang pecinta aktivitas luar ruang dan berjiwa petualang sejati? Anda adalah orang yang harus memasukkan Pantai Gigi Hiu ke dalam list tempat yang harus Anda kunjungi. Terletak di Provinsi Lampung, Pantai Gigi Hiu menawarkan pengalaman mengunjungi pantai yang berbeda bagi Anda.",
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.justify,
               style: TextStyle(fontSize: 16.0),
             ),
           )
