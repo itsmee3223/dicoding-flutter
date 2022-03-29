@@ -1,4 +1,4 @@
-import 'package:belajar_app/onboardingone.dart';
+import 'package:belajar_app/login.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -80,7 +80,7 @@ class WelcomeScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const OnboardingOne()),
+                              builder: (context) => const LoginScreen()),
                         );
                       },
                       child: const Text(

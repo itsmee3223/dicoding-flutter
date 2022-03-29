@@ -1,8 +1,9 @@
+import 'package:belajar_app/login.dart';
 import 'package:belajar_app/welcome.dart';
 import 'package:flutter/material.dart';
 
-class OnboardingOne extends StatelessWidget {
-  const OnboardingOne({Key? key}) : super(key: key);
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -19,7 +20,7 @@ class OnboardingOne extends StatelessWidget {
                     Column(
                       children: const [
                         Text(
-                          'Masuk',
+                          'Register',
                           style: TextStyle(
                               fontSize: 24,
                               fontFamily: 'Poppins',
@@ -35,11 +36,11 @@ class OnboardingOne extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const WelcomeScreen()),
+                                  builder: (context) => const LoginScreen()),
                             );
                           },
                           child: const Text(
-                            'Register',
+                            'Login',
                             style: TextStyle(
                               fontSize: 16,
                               fontFamily: 'Poppins',
@@ -60,7 +61,31 @@ class OnboardingOne extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: 'Nomor Ponesl atau Email',
+                      hintText: 'First Name',
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 24),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Last Name',
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 24),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Nomor Ponsel atau Email',
                     ),
                   ),
                 ),
@@ -98,11 +123,11 @@ class OnboardingOne extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const OnboardingOne()),
+                            builder: (context) => const RegisterScreen()),
                       );
                     },
                     child: const Text(
-                      "Login",
+                      "Register",
                       style: TextStyle(
                           fontSize: 18,
                           fontFamily: 'Poppins',
@@ -111,29 +136,6 @@ class OnboardingOne extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 33),
-                child: Row(
-                  children: [
-                    Column(
-                      children: const [Text('Lupa kata sandi?')],
-                    ),
-                    Column(
-                      children: [
-                        TextButton(
-                          onPressed: (() {}),
-                          child: const Text(
-                            ' Klik disini',
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                color: Color(0xFF0098EA)),
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              )
             ],
           ),
         )),
