@@ -1,5 +1,5 @@
+import 'package:belajar_app/onboardingone.dart';
 import 'package:flutter/material.dart';
-import 'package:belajar_app/welcome.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const WelcomeScreen(),
+      home: const OnboardingOne(),
     );
   }
 }
