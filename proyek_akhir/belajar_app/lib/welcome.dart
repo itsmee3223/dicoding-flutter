@@ -8,7 +8,6 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         body: SafeArea(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               const SizedBox(height: 80.0),
               Row(
@@ -25,10 +24,10 @@ class WelcomeScreen extends StatelessWidget {
                 height: 20.0,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   Text(
                     'Find Your Favourite Lesson',
-                    textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 24,
                         fontFamily: 'Poopins',
@@ -37,17 +36,7 @@ class WelcomeScreen extends StatelessWidget {
                 ],
               ),
               Row(
-                children: const [
-                  Divider(
-                    height: 5,
-                    thickness: 4,
-                    indent: 150,
-                    endIndent: 150,
-                    color: Color(0xFF52C3FF),
-                  ),
-                ],
-              ),
-              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   Text(
                     'Anyone can join the millions of members in \nour company community to learn cutting edge skill',

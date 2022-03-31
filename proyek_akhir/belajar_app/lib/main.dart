@@ -1,5 +1,4 @@
-import 'package:belajar_app/register.dart';
-import 'package:belajar_app/welcome.dart';
+import 'package:belajar_app/menu_utama.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,12 +11,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Belajar App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const RegisterScreen(),
+      home: MainMenuScreen(),
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:belajar_app/login.dart';
-import 'package:belajar_app/welcome.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatelessWidget {
