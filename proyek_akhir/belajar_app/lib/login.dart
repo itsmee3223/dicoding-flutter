@@ -1,8 +1,25 @@
+import 'package:belajar_app/menu_utama.dart';
 import 'package:belajar_app/register.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  _LoginScreen createState() => _LoginScreen();
+}
+
+class _LoginScreen extends State<LoginScreen> {
+  final email = TextEditingController();
+  final sandi = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    email.dispose();
+    sandi.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -12,7 +29,7 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.only(top: 158),
+                margin: const EdgeInsets.only(top: 50),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -55,10 +72,12 @@ class LoginScreen extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.only(top: 24),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                   child: TextField(
-                    decoration: InputDecoration(
+                    controller: email,
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'Nomor Ponesl atau Email',
                     ),
@@ -67,10 +86,12 @@ class LoginScreen extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.only(top: 24),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                   child: TextField(
-                    decoration: InputDecoration(
+                    controller: sandi,
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'Kata Sandi',
                     ),
@@ -95,11 +116,19 @@ class LoginScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(50.0),
                         ))),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginScreen()),
-                      );
+                      if (email.text == 'ramanda@mail.com' &&
+                          sandi.text == '123456') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MainMenuScreen()),
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                          content: Text("Email atau Kata Sandi SALAH!!"),
+                        ));
+                      }
                     },
                     child: const Text(
                       "Login",

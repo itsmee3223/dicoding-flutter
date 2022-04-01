@@ -31,7 +31,7 @@ class MainMenuScreen extends StatelessWidget {
                         Row(
                           children: const [
                             Text(
-                              "John Doe",
+                              "RamandaAA",
                               style: TextStyle(
                                   fontFamily: 'Poppints',
                                   fontSize: 18,
@@ -93,25 +93,57 @@ class BlueBox extends StatelessWidget {
       child: Column(children: [
         Row(
           children: [
-            Container(
-              margin: const EdgeInsets.only(top: 40, left: 24, right: 24),
-              child: TextField(
-                autofocus: false,
-                style: const TextStyle(fontSize: 14, color: Color(0xFFA3A3A3)),
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: 'Seacrh Your Courses Here',
-                  contentPadding: const EdgeInsets.all(10),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+            Column(
+              children: [
+                Column(children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 50, left: 40, right: 40),
+                    child: Row(
+                      children: [
+                        FloatingActionButton.extended(
+                          heroTag: 'tombol1',
+                          label: const Text('All topics'), // <-- Text
+                          backgroundColor: Colors.black,
+                          icon: Image.asset('assets/img/ic_fire.png'),
+                          onPressed: () {},
+                        ),
+                        FloatingActionButton.extended(
+                          heroTag: 'tombol2',
+                          label: const Text('Advance'), // <-- Text
+                          backgroundColor: Colors.black,
+                          icon: Image.asset('assets/img/ic_advance.png'),
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
                   ),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.white),
-                    borderRadius: BorderRadius.circular(10),
+                  Container(
+                    margin: const EdgeInsets.only(top: 40),
+                    child: Row(
+                      children: [
+                        FloatingActionButton.extended(
+                          heroTag: 'tombol3',
+                          label: const Text('Popular'), // <-- Text
+                          backgroundColor: Colors.black,
+                          icon: Image.asset('assets/img/ic_popular.png'),
+                          onPressed: () {},
+                        ),
+                        FloatingActionButton.extended(
+                          heroTag: 'tombol4',
+                          label: const Text('Newest'), // <-- Text
+                          backgroundColor: Colors.black,
+                          icon: Image.asset('assets/img/ic_newest.png'),
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
                   ),
+                ]),
+                const SizedBox(
+                  height: 20,
                 ),
-              ),
+                const Course()
+              ],
             ),
           ],
         ),
@@ -120,5 +152,46 @@ class BlueBox extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
     ));
+  }
+}
+
+class Course extends StatelessWidget {
+  const Course({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: const Color(0xFF57B7EA),
+      ),
+      height: 200,
+      width: 200,
+      child: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.symmetric(vertical: 20),
+            child: Image.asset(
+              'assets/img/ist_course.png',
+              width: 100,
+            ),
+          ),
+          const Text(
+            "Learn Basic Programming",
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                color: Colors.white,
+                fontWeight: FontWeight.bold),
+          ),
+          const Text(
+            "Start your first programming",
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                color: Colors.white,
+                fontWeight: FontWeight.w300),
+          ),
+        ],
+      ),
+    );
   }
 }

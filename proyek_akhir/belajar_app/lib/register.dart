@@ -1,8 +1,27 @@
 import 'package:belajar_app/login.dart';
+import 'package:belajar_app/menu_utama.dart';
 import 'package:flutter/material.dart';
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
+
+  @override
+  _RegisterScreen createState() => _RegisterScreen();
+}
+
+class _RegisterScreen extends State<RegisterScreen> {
+  final name = TextEditingController();
+  final email = TextEditingController();
+  final sandi = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    name.dispose();
+    email.dispose();
+    sandi.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -12,7 +31,7 @@ class RegisterScreen extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.only(top: 158),
+                margin: const EdgeInsets.only(top: 50),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -55,34 +74,26 @@ class RegisterScreen extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.only(top: 24),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                   child: TextField(
-                    decoration: InputDecoration(
+                    controller: name,
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: 'First Name',
+                      hintText: 'Your Name',
                     ),
                   ),
                 ),
               ),
               Container(
                 margin: const EdgeInsets.only(top: 24),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                   child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Last Name',
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(top: 24),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                  child: TextField(
-                    decoration: InputDecoration(
+                    controller: email,
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'Nomor Ponsel atau Email',
                     ),
@@ -91,10 +102,12 @@ class RegisterScreen extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.only(top: 24),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                   child: TextField(
-                    decoration: InputDecoration(
+                    controller: sandi,
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'Kata Sandi',
                     ),
@@ -119,11 +132,21 @@ class RegisterScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(50.0),
                         ))),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const RegisterScreen()),
-                      );
+                      if (name.text.isEmpty ||
+                          name.text.isEmpty ||
+                          email.text.isEmpty ||
+                          sandi.text.isEmpty) {
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                          content: Text("Harap isi dan lengkapi form diatas"),
+                        ));
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MainMenuScreen()),
+                        );
+                      }
                     },
                     child: const Text(
                       "Register",
